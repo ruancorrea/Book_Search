@@ -4,11 +4,13 @@ import './App.css';
 import axios from 'axios';
 import { useState } from 'react';
 
+import keyAPI from './services/api'
+
 function App() {
 
   const [book, setBook] = useState("")
   const [result, setResult] = useState([])
-  const [apiKey, setApiKey] = useState("AIzaSyDM1ZdbRLqNHX58icRGHV5HyiUuxQeaN8o")
+  const [apiKey, setApiKey] = useState(keyAPI)
   
   function handleChange(e) {
     const book = e.target.value;
@@ -17,6 +19,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    console.log(apiKey)
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20")
     .then(data => {
       console.log(data.data.items)
