@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <div class="container">
-      <h1>Book Seach App React</h1>
+      <h1>Book Search App React</h1>
       <form onSubmit={handleSubmit}>
         <div class="form-group">
           <input
@@ -40,8 +40,12 @@ function App() {
         <button type="submit" className="btn btn-danger">Search</button>
       </form>
       {result.map(book =>{
+        const thumbnail = book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`
+    
+        console.log("thumb = " + thumbnail)
+        console.log("tipo = " + typeof thumbnail)
         return <a href={book.volumeInfo.previewLink} target="_blank">
-          <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+          <img src={thumbnail} alt={book.title} />
         </a>
       })}
     </div>
