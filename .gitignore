@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/src/services/api.js
+/src/services/apiGoogle.js
 
 # testing
 /coverage
